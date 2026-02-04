@@ -1,9 +1,28 @@
 services:
+  # ---------------- Backend ----------------
   backend:
     build: ./backend
     container_name: warehouse_backend
-    ports:
-      - '8000:8000'
-    volumes:
-      - ./backend/app/data:/app/app/data
+    networks:
+      - werehouse_net
+    expose:
+      - '9000' # فقط داخل شبکه داخلی
     restart: unless-stopped
+
+  # ---------------- Frontend ----------------
+  frontend:
+    build: ./frontend
+    container_name: warehouse_frontend
+    networks:
+      - werehouse_net
+      - npm_net
+    expose:
+      - '3000'
+    restart: unless-stopped
+
+networks:
+  npm_net:
+    name: npm_net
+    external: true
+  werehouse_net:
+    name: werehouse_net
