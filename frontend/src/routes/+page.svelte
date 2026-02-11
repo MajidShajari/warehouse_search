@@ -29,7 +29,7 @@
 	<div class="mb-4 flex gap-2">
 		<input
 			type="text"
-			placeholder="مثلاً: شیلنگ۶"
+			placeholder="مثلاً: شیلنگ ۶"
 			bind:value={query}
 			on:keydown={(e) => e.key === 'Enter' && search()}
 			class="focus:ring-primary flex-1 rounded border p-2 shadow-sm focus:ring-2 focus:outline-none"

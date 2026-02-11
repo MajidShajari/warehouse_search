@@ -1,26 +1,28 @@
+version: '3.9'
+
 services:
   backend:
     build: ./backend
     container_name: warehouse_backend
     networks:
-      - warehouse_net
+      - npm_net
     expose:
       - '9000'
     restart: unless-stopped
+    environment:
+      NODE_ENV: production
 
   frontend:
     build: ./frontend
     container_name: warehouse_frontend
     networks:
-      - warehouse_net
       - npm_net
-    ports:
-      - '3000:3000'
+    expose:
+      - '80'
     restart: unless-stopped
+    environment:
+      VITE_API_URL: '/api' # مسیر relative برای production
 
 networks:
   npm_net:
-    name: npm_net
     external: true
-  warehouse_net:
-    name: warehouse_net

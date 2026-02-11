@@ -8,7 +8,7 @@ product_service = ProductService()
 cost_service = CostCenterService()
 
 
-@router.get("/search")
+@router.get("/product")
 def search_products(q: str = Query(..., min_length=1)):
     result = product_service.search(q)
     return {"count": len(result), "items": result.to_dicts()}
