@@ -102,7 +102,7 @@
 
 				<tbody>
 					{#each activeResults as item, i}
-						<tr class={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+						<tr class={i % 2 === 0 ? 'bg-gray-50' : 'bg-red-50'}>
 							{#if mode === 'product'}
 								<!-- TS می‌فهمد اینجا Product است -->
 								<td class="border px-4 py-2 text-center">
