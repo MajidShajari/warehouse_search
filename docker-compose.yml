@@ -3,7 +3,7 @@ version: '3.9'
 services:
   backend:
     build: ./backend
-    container_name: warehouse_backend
+    container_name: WarehouseAPI
     networks:
       - npm_net
     expose:
@@ -14,7 +14,7 @@ services:
 
   frontend:
     build: ./frontend
-    container_name: warehouse_frontend
+    container_name: Warehouse
     networks:
       - npm_net
     expose:
